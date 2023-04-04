@@ -12,9 +12,10 @@ const server = http.createServer((req, res) => {
       const value = obj.num1;
     
      // Write the code here to check if the number is odd or even
-     if(!value || Number.isNaN(value)){
+     if(!value || Number.isNaN(Number(value))){
       res.statusCode=400;
       res.end("Bad request");
+      return;
      }
      if(value%2===0){
       res.statusCode=200;
